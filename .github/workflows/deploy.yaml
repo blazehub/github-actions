@@ -7,6 +7,7 @@ on:
 
 permissions:
   contents: write
+  pages: write
 
 jobs:
   build_and_deploy:
@@ -19,16 +20,13 @@ jobs:
       - name: Setup NodeJs
         uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: 20
       
       - name: Install Dependencies
         run: npm install
 
       - name: Build Project
         run: npm run build
-
-      - name: Deploy Project
-        run: npm run deploy
 
       - name: Deploy to github pages
         uses: JamesIves/github-pages-deploy-action@v4
